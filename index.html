@@ -3,39 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VANTA.net Background Demo</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        .container {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-family: Arial, sans-serif;
-            position: relative;
-            z-index: 1;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgba(255, 45, 213, 0.5);
-        }
-        p {
-            font-size: 1.5rem;
-            max-width: 80%;
-            text-align: center;
-            text-shadow: 0 0 5px rgba(255, 45, 213, 0.5);
-        }
-    </style>
+    <title>Alejandro Naranjo Marin</title>
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <!-- Cargamos Three.js primero (necesario para VANTA) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
     <!-- Después cargamos la biblioteca VANTA con el efecto NET -->
@@ -47,35 +17,5 @@
         <h1></h1>
         <p></p>
     </div>
-
-    <script>
-        // Configuramos el efecto VANTA.NET
-        document.addEventListener('DOMContentLoaded', () => {
-            VANTA.NET({
-                el: "#vanta-background",
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                scale: 1.00,
-                scaleMobile: 1.00,
-                color: 0xff2dd5,    // Color rosa/púrpura para la red
-                backgroundColor: 0x000000,  // Fondo negro
-                points: 20,         // Cantidad de puntos
-                maxDistance: 25.00, // Distancia máxima entre puntos conectados
-                spacing: 15.00      // Espaciado de los puntos
-            });
-            
-            // Aseguramos que el div de fondo ocupe toda la pantalla
-            const background = document.getElementById('vanta-background');
-            background.style.position = 'fixed';
-            background.style.top = '0';
-            background.style.left = '0';
-            background.style.width = '100%';
-            background.style.height = '100%';
-            background.style.zIndex = '-1';
-        });
-    </script>
 </body>
 </html>
