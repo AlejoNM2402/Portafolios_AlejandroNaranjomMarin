@@ -1,4 +1,4 @@
-     document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
         VANTA.NET({
             el: "#vanta-background",
             mouseControls: true,
@@ -21,7 +21,6 @@
         background.style.top = '0';
         background.style.left = '0';
         background.style.width = '100%';
-         
         background.style.height = '100%';
         background.style.zIndex = '-1';
     });
