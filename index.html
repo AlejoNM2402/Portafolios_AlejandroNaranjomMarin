@@ -22,11 +22,177 @@
         <div class="tech-stack">
             <span class="tech-tag">JavaScript</span>
             <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">React</span>
             <span class="tech-tag">MongoDB</span>
             <span class="tech-tag">Express</span>
         </div>
+
+        <!-- Sección de Proyectos -->
+        <div class="projects-section">
+            <h3>Mis Proyectos</h3>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Proyecto 1 -->
+                        <div class="project-card" onclick="openProject('https://tu-ecommerce-demo.com')">
+                            <div class="project-image">
+                                <img src="images/dyd.png" alt="E-Commerce Platform" class="project-img">
+                                <div class="project-overlay">
+                                    <span class="view-project">Ver Proyecto →</span>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>Dungeons & dragons character creatos</h4>
+                                <p>Creador de Personajes de Dungeons & Dragons — Una aplicación web interactiva que permite a los jugadores diseñar y gestionar sus propios héroes. Ofrece herramientas para elegir raza, clase y trasfondo, asignar estadísticas, añadir objetos, entre otros. Incluye funciones para guardar y eliminar personajes.</p>
+                                <div class="project-tech">
+                                    <span>JavaScript</span>
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://tu-ecommerce-demo.com" target="_blank" class="project-link" onclick="event.stopPropagation()">Ver Demo</a>
+                                    <a href="https://github.com/tu-usuario/ecommerce-project" target="_blank" class="project-link" onclick="event.stopPropagation()">Código</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proyecto 2 -->
+                        <div class="project-card" onclick="openProject('https://tu-dashboard-demo.com')">
+                            <div class="project-image">
+                                <img src="https://via.placeholder.com/350x200/064e3b/34d399?text=Dashboard" alt="Dashboard Analytics" class="project-img">
+                                <div class="project-overlay">
+                                    <span class="view-project">Ver Proyecto →</span>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>Dashboard Analytics</h4>
+                                <p>Dashboard interactivo con gráficos en tiempo real y análisis de datos avanzado.</p>
+                                <div class="project-tech">
+                                    <span>Vue.js</span>
+                                    <span>Express</span>
+                                    <span>Chart.js</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://tu-dashboard-demo.com" target="_blank" class="project-link" onclick="event.stopPropagation()">Ver Demo</a>
+                                    <a href="https://github.com/tu-usuario/dashboard-project" target="_blank" class="project-link" onclick="event.stopPropagation()">Código</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proyecto 3 -->
+                        <div class="project-card" onclick="openProject('https://tu-chat-demo.com')">
+                            <div class="project-image">
+                                <img src="https://via.placeholder.com/350x200/065f46/6ee7b7?text=Chat+App" alt="Chat App Real-time" class="project-img">
+                                <div class="project-overlay">
+                                    <span class="view-project">Ver Proyecto →</span>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>Chat App Real-time</h4>
+                                <p>Aplicación de chat en tiempo real con salas, notificaciones y compartir archivos.</p>
+                                <div class="project-tech">
+                                    <span>Socket.io</span>
+                                    <span>React</span>
+                                    <span>Firebase</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://tu-chat-demo.com" target="_blank" class="project-link" onclick="event.stopPropagation()">Ver Demo</a>
+                                    <a href="https://github.com/tu-usuario/chat-project" target="_blank" class="project-link" onclick="event.stopPropagation()">Código</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proyecto 4 -->
+                        <div class="project-card" onclick="openProject('https://tu-music-demo.com')">
+                            <div class="project-image">
+                                <img src="https://via.placeholder.com/350x200/047857/a7f3d0?text=Music+Player" alt="Music Player" class="project-img">
+                                <div class="project-overlay">
+                                    <span class="view-project">Ver Proyecto →</span>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>Music Player</h4>
+                                <p>Reproductor de música con playlist, ecualizador y sincronización en la nube.</p>
+                                <div class="project-tech">
+                                    <span>React</span>
+                                    <span>Web Audio API</span>
+                                    <span>AWS S3</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://tu-music-demo.com" target="_blank" class="project-link" onclick="event.stopPropagation()">Ver Demo</a>
+                                    <a href="https://github.com/tu-usuario/music-project" target="_blank" class="project-link" onclick="event.stopPropagation()">Código</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proyecto 5 -->
+                        <div class="project-card" onclick="openProject('https://tu-iot-demo.com')">
+                            <div class="project-image">
+                                <img src="https://via.placeholder.com/350x200/059669/d1fae5?text=Smart+Home" alt="Smart Home IoT" class="project-img">
+                                <div class="project-overlay">
+                                    <span class="view-project">Ver Proyecto →</span>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h4>Smart Home IoT</h4>
+                                <p>Sistema de domótica para controlar dispositivos inteligentes desde una app web.</p>
+                                <div class="project-tech">
+                                    <span>IoT</span>
+                                    <span>MQTT</span>
+                                    <span>Python</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://tu-iot-demo.com" target="_blank" class="project-link" onclick="event.stopPropagation()">Ver Demo</a>
+                                    <a href="https://github.com/tu-usuario/iot-project" target="_blank" class="project-link" onclick="event.stopPropagation()">Código</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+            </div>
+        </div>
     </div>
+
+    <script>
+        let currentSlide = 0;
+        const cardsPerView = window.innerWidth <= 768 ? 1 : 3;
+        const totalCards = document.querySelectorAll('.project-card').length;
+        const maxSlides = Math.max(0, totalCards - cardsPerView);
+
+        function moveCarousel(direction) {
+            const track = document.getElementById('carouselTrack');
+            const cardWidth = document.querySelector('.project-card').offsetWidth + 30; // incluye gap
+            
+            currentSlide += direction;
+            
+            if (currentSlide < 0) currentSlide = maxSlides;
+            if (currentSlide > maxSlides) currentSlide = 0;
+            
+            const translateX = -currentSlide * cardWidth;
+            track.style.transform = `translateX(${translateX}px)`;
+        }
+
+        // Auto-play del carrusel
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+
+        // Recalcular en redimensión de ventana
+        window.addEventListener('resize', () => {
+            const newCardsPerView = window.innerWidth <= 768 ? 1 : 3;
+            const newMaxSlides = Math.max(0, totalCards - newCardsPerView);
+            if (currentSlide > newMaxSlides) {
+                currentSlide = 0;
+                moveCarousel(0);
+            }
+        });
+
+        // Función para abrir proyectos
+        function openProject(url) {
+            window.open(url, '_blank');
+        }
+    </script>
 
     <style>
         @keyframes fadeInUp {
@@ -192,6 +358,247 @@
             pointer-events: none;
         }
 
+        /* Sección de Proyectos */
+        .projects-section {
+            margin-top: 5rem;
+            width: 100%;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .projects-section h3 {
+            font-size: 3rem;
+            color: #a7f3d0;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+            animation: glow 4s ease-in-out infinite;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+            padding: 0 5vw;
+        }
+
+        .project-card {
+            flex: 0 0 350px;
+            background: linear-gradient(145deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.05) 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(16, 185, 129, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            animation: float 6s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        .project-card:nth-child(2n) { animation-delay: 1s; }
+        .project-card:nth-child(3n) { animation-delay: 2s; }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #10b981;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+            background: linear-gradient(145deg, rgba(16, 185, 129, 0.15) 0%, rgba(52, 211, 153, 0.1) 100%);
+        }
+
+        .project-image {
+            height: 200px;
+            /* background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(6, 78, 59, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            filter: sepia(100%) hue-rotate(90deg) saturate(0.8) brightness(0.9);
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+            filter: sepia(100%) hue-rotate(90deg) saturate(1) brightness(1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.7) 0%, rgba(6, 78, 59, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .view-project {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h4 {
+            font-size: 1.5rem;
+            color: #d1fae5;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+        }
+
+        .project-content p {
+            font-size: 1rem;
+            color: #a7f3d0;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            animation: none;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech span {
+            background: rgba(16, 185, 129, 0.2);
+            color: #a7f3d0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(52, 211, 153, 0.2) 100%);
+            border: 2px solid rgba(16, 185, 129, 0.4);
+            border-radius: 10px;
+            color: #d1fae5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.4) 0%, rgba(52, 211, 153, 0.4) 100%);
+            border-color: #10b981;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(16, 185, 129, 0.15);
+            border: none;
+            border-radius: 50%;
+            color: rgba(209, 250, 229, 0.8);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(16, 185, 129, 0.3);
+            color: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.05);
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .carousel-btn.prev {
+            left: 2vw;
+        }
+
+        .carousel-btn.next {
+            right: 2vw;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+                letter-spacing: 1px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+            
+            p {
+                font-size: 1.3rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }}
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 3rem;
@@ -214,6 +621,42 @@
             .tech-tag {
                 font-size: 1rem;
                 padding: 0.8rem 1.2rem;
+            }
+
+            .projects-section h3 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .project-card {
+                flex: 0 0 280px;
+            }
+
+            .carousel-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .carousel-btn.prev {
+                left: 1vw;
+            }
+
+            .carousel-btn.next {
+                right: 1vw;
+            }
+
+            .carousel-track {
+                padding: 0 3vw;
+            }
+
+            .project-content h4 {
+                font-size: 1.3rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
     </style>
