@@ -3,395 +3,415 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio · Dev</title>
+  <title>Alejandro Naranjo · Diseñador Web</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- CURSOR PERSONALIZADO -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
-
   <!-- LOADER -->
   <div class="loader" id="loader">
-    <div class="loader-inner">
-      <span class="loader-line"></span>
-      <p class="loader-text" id="loaderText">00</p>
-    </div>
+    <div class="loader-logo">Alejandro Naranjo</div>
+    <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+    <p class="loader-sub">Cargando portafolio...</p>
   </div>
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <a href="#hero" class="nav-logo">
-      <span class="logo-bracket">&lt;</span>Dev<span class="logo-bracket">/&gt;</span>
-    </a>
+    <a href="#inicio" class="nav-logo">Alejandro Naranjo</a>
     <div class="nav-links">
-      <a href="#sobre" class="nav-link" data-text="Sobre mí">Sobre mí</a>
-      <a href="#proyectos" class="nav-link" data-text="Proyectos">Proyectos</a>
-      <a href="#habilidades" class="nav-link" data-text="Skills">Skills</a>
-      <a href="#contacto" class="nav-link" data-text="Contacto">Contacto</a>
+      <a href="#resultados" class="nav-link">Resultados</a>
+      <a href="#proyectos"  class="nav-link">Proyectos</a>
+      <a href="#proceso"    class="nav-link">Cómo trabajo</a>
+      <a href="#contacto"   class="nav-link">Contacto</a>
     </div>
+    <a href="#contacto" class="nav-cta">Quiero mi web</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menú">
-      <span></span><span></span>
+      <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- MENÚ MÓVIL -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#sobre"       class="mobile-link" onclick="closeMobile()">Sobre mí</a>
-    <a href="#proyectos"   class="mobile-link" onclick="closeMobile()">Proyectos</a>
-    <a href="#habilidades" class="mobile-link" onclick="closeMobile()">Skills</a>
-    <a href="#contacto"    class="mobile-link" onclick="closeMobile()">Contacto</a>
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="#resultados" class="mobile-link" onclick="closeMobile()">Resultados</a>
+    <a href="#proyectos"  class="mobile-link" onclick="closeMobile()">Proyectos</a>
+    <a href="#proceso"    class="mobile-link" onclick="closeMobile()">Cómo trabajo</a>
+    <a href="#contacto"   class="mobile-link" onclick="closeMobile()">Contacto</a>
+    <a href="#contacto" class="btn-primary mobile-btn" onclick="closeMobile()">Quiero mi web →</a>
   </div>
 
-  <!-- ══ HERO ══════════════════════════════════════ -->
-  <section class="hero" id="hero">
-    <!-- Fondo de grid animado -->
+  <!-- ══ HERO ════════════════════════════════════ -->
+  <section class="hero parallax-section" id="inicio">
+    <div class="parallax-bg"
+         style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1920&q=75')">
+    </div>
+    <div class="parallax-overlay" style="background:linear-gradient(135deg,rgba(8,10,15,.9) 0%,rgba(8,10,15,.78) 50%,rgba(12,15,25,.88) 100%)"></div>
     <div class="hero-grid"></div>
-    <!-- Orbes de luz -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
 
-    <div class="hero-content">
-      <p class="hero-label">
-        <span class="label-dot"></span>
-        Disponible para proyectos
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge reveal-up">
+          <span class="badge-dot"></span>
+          Disponible para nuevos proyectos
+        </div>
+        <h1 class="hero-title reveal-up">
+          Tu negocio merece<br>
+          una página web<br>
+          <em>que venda</em>
+        </h1>
+        <p class="hero-sub reveal-up">
+          Soy <strong>Alejandro Naranjo</strong>, diseñador web colombiano.
+          Creo páginas modernas, rápidas y profesionales para negocios como el tuyo.
+          <strong>Sin tecnicismos. Tú te enfocas en tu negocio, yo me encargo de la web.</strong>
+        </p>
+        <div class="hero-actions reveal-up">
+          <a href="#proyectos" class="btn-primary">
+            Ver mis trabajos
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#contacto" class="btn-ghost">Hablemos gratis</a>
+        </div>
+        <div class="hero-trust reveal-up">
+          <div class="trust-item">
+            <span class="trust-num" data-target="1">0</span><span class="trust-plus">+</span>
+            <span class="trust-label">proyecto entregado</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-num" data-target="100">0</span><span class="trust-plus">%</span>
+            <span class="trust-label">cliente satisfecho</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-num" data-target="7">0</span><span class="trust-plus"> días</span>
+            <span class="trust-label">tiempo promedio</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal-right">
+        <div class="browser-mockup">
+          <div class="browser-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <div class="browser-url">tunegocio.com</div>
+          </div>
+          <div class="browser-content">
+            <div class="mock-nav-bar"></div>
+            <div class="mock-hero-block">
+              <div class="mock-h"></div>
+              <div class="mock-p"></div>
+              <div class="mock-btn"></div>
+            </div>
+            <div class="mock-cards-row">
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+            </div>
+          </div>
+          <div class="browser-glow"></div>
+        </div>
+        <div class="float-notif notif-1">
+          <span class="notif-icon">🎉</span>
+          <div><strong>¡Nueva venta!</strong><span>Hace 2 minutos</span></div>
+        </div>
+        <div class="float-notif notif-2">
+          <span class="notif-icon">👁️</span>
+          <div><strong>+340 visitas hoy</strong><span>Desde Google</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Descubre más</span>
+    </div>
+  </section>
+
+  <!-- ══ RESULTADOS ═══════════════════════════════ -->
+  <section class="section parallax-section" id="resultados">
+    <div class="parallax-bg"
+         style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=75')">
+    </div>
+    <div class="parallax-overlay" style="background:rgba(8,10,15,.9)"></div>
+
+    <div class="section-inner">
+      <div class="section-label reveal-up">Lo que consigues</div>
+      <h2 class="section-title reveal-up">Una web que trabaja<br><em>por ti las 24 horas</em></h2>
+
+      <div class="benefits-grid">
+        <div class="benefit-card reveal-up">
+          <div class="benefit-icon">🚀</div>
+          <h3>Más clientes</h3>
+          <p>Tu negocio aparece en Google cuando alguien busca lo que ofreces. Atraes clientes incluso mientras duermes.</p>
+        </div>
+        <div class="benefit-card reveal-up">
+          <div class="benefit-icon">✨</div>
+          <h3>Primera impresión que vende</h3>
+          <p>Una web profesional genera confianza al instante. Tus clientes verán que eres serio antes de llamarte.</p>
+        </div>
+        <div class="benefit-card reveal-up">
+          <div class="benefit-icon">📱</div>
+          <h3>Funciona en cualquier dispositivo</h3>
+          <p>Tu página se ve perfecta en celular, tablet y computador. El 70% de las visitas son desde el teléfono.</p>
+        </div>
+        <div class="benefit-card reveal-up">
+          <div class="benefit-icon">⚡</div>
+          <h3>Carga en segundos</h3>
+          <p>Páginas lentas pierden clientes. Las mías cargan rapidísimo, mejorando tu posición en Google.</p>
+        </div>
+        <div class="benefit-card reveal-up">
+          <div class="benefit-icon">🎯</div>
+          <h3>Enfocada en vender</h3>
+          <p>Diseñada estratégicamente para que los visitantes tomen acción: llamarte, escribirte o comprar.</p>
+        </div>
+        <div class="benefit-card reveal-up">
+          <div class="benefit-icon">🛠️</div>
+          <h3>Fácil de actualizar</h3>
+          <p>Te entrego tu web con un panel sencillo para que puedas editar textos e imágenes tú mismo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROYECTOS ════════════════════════════════ -->
+  <section class="section parallax-section" id="proyectos">
+    <div class="parallax-bg"
+         style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=75')">
+    </div>
+    <div class="parallax-overlay" style="background:rgba(8,10,15,.88)"></div>
+
+    <div class="section-inner">
+      <div class="section-label reveal-up">Proyecto reciente</div>
+      <h2 class="section-title reveal-up">Trabajo que<br><em>habla por sí solo</em></h2>
+
+      <!-- UN SOLO PROYECTO CENTRADO -->
+      <div class="project-solo reveal-up">
+        <div class="project-card-big">
+          <div class="project-preview-big" style="background:linear-gradient(135deg,#667eea,#764ba2)">
+            <div class="project-browser-mini">
+              <div class="pbm-bar"><span></span><span></span><span></span></div>
+              <div class="pbm-body">
+                <div class="pbm-img"></div>
+                <div class="pbm-lines">
+                  <span style="width:70%"></span>
+                  <span style="width:50%"></span>
+                  <span style="width:80%"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-info-big">
+            <span class="project-tag">Inmobiliaria</span>
+            <h3>Inmobiliaria Inmaculada</h3>
+            <p>Plataforma web completa para gestión y publicación de inmuebles. Incluye catálogo con filtros de búsqueda por zona, tipo y precio, galería de fotos, panel de administración y contacto directo por WhatsApp.</p>
+            <div class="project-result">
+              <span>📈</span>
+              Más consultas y mayor presencia digital desde el primer mes
+            </div>
+            <div class="project-client">
+              <span class="client-label">Cliente:</span>
+              <span class="client-name">Ángela Moncada · Floridablanca, Santander</span>
+            </div>
+            <a href="#contacto" class="btn-primary" style="margin-top:8px;display:inline-flex">
+              Quiero algo así para mi negocio →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="projects-note reveal-up">
+        ¿Tienes un proyecto en mente?
+        <a href="#contacto">Cuéntame tu idea →</a>
       </p>
-      <h1 class="hero-title">
-        <span class="title-line" data-delay="0">Hola, soy</span>
-        <span class="title-name" data-delay="1">
-          Alejandro Naranjo Marín
-          <span class="title-underline"></span>
-        </span>
-        <span class="title-line title-sub" data-delay="2">Desarrollador Web</span>
-      </h1>
-      <p class="hero-desc" data-delay="3">
-        Creo experiencias digitales que combinan
-        <em>diseño elegante</em> con <em>código limpio</em>.
-        De la idea al producto final.
-      </p>
-      <div class="hero-cta" data-delay="4">
-        <a href="#proyectos" class="btn-primary">
-          Ver proyectos
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </div>
+  </section>
+
+  <!-- ══ PROCESO ══════════════════════════════════ -->
+  <section class="section parallax-section" id="proceso">
+    <div class="parallax-bg"
+         style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=75')">
+    </div>
+    <div class="parallax-overlay" style="background:rgba(8,10,15,.87)"></div>
+
+    <div class="section-inner">
+      <div class="section-label reveal-up">Cómo trabajo</div>
+      <h2 class="section-title reveal-up">Simple, rápido<br><em>y sin estrés para ti</em></h2>
+
+      <div class="steps-grid">
+        <div class="step reveal-up">
+          <div class="step-num">01</div>
+          <div class="step-icon">💬</div>
+          <h3>Conversamos</h3>
+          <p>Me cuentas qué necesitas, a quiénes quieres llegar y qué te gusta. Sin reuniones largas ni formularios.</p>
+        </div>
+        <div class="step-arrow reveal-up">→</div>
+        <div class="step reveal-up">
+          <div class="step-num">02</div>
+          <div class="step-icon">🎨</div>
+          <h3>Diseño tu web</h3>
+          <p>En pocos días te muestro cómo quedará. Hacemos ajustes hasta que estés 100% feliz con el resultado.</p>
+        </div>
+        <div class="step-arrow reveal-up">→</div>
+        <div class="step reveal-up">
+          <div class="step-num">03</div>
+          <div class="step-icon">🚀</div>
+          <h3>¡Tu web está viva!</h3>
+          <p>Publicamos tu página y te enseño a usarla. Clientes pueden encontrarte en internet las 24 horas.</p>
+        </div>
+      </div>
+
+      <div class="proceso-cta reveal-up">
+        <p>¿Listo para tener tu página web?</p>
+        <a href="#contacto" class="btn-primary btn-large">
+          Empecemos hoy
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="#contacto" class="btn-ghost">Hablemos</a>
       </div>
-    </div>
-
-    <!-- Código flotante decorativo -->
-    <div class="hero-code">
-      <pre class="code-block"><code><span class="c-key">const</span> <span class="c-var">dev</span> = {
-  <span class="c-prop">nombre</span>: <span class="c-str">"Alejandro Naranjo Marín"</span>,
-  <span class="c-prop">rol</span>:    <span class="c-str">"Full Stack Dev"</span>,
-  <span class="c-prop">stack</span>:  [<span class="c-str">"JS"</span>, <span class="c-str">"React"</span>, <span class="c-str">"Node"</span>],
-  <span class="c-prop">café</span>:   <span class="c-num">Infinity</span>
-};</code></pre>
-    </div>
-
-    <div class="hero-scroll">
-      <span>scroll</span>
-      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ══ SOBRE MÍ ════════════════════════════════ -->
-  <section class="section sobre" id="sobre">
+  <!-- ══ CONTACTO ══════════════════════════════════ -->
+  <section class="section contacto parallax-section" id="contacto">
+    <div class="parallax-bg"
+         style="background-image:url('https://images.unsplash.com/photo-1494522855154-9297ac14b55f?auto=format&fit=crop&w=1920&q=75')">
+    </div>
+    <div class="parallax-overlay" style="background:rgba(8,10,15,.89)"></div>
+
     <div class="section-inner">
-      <div class="sobre-text">
-        <p class="section-tag">// 01 — sobre mí</p>
-        <h2 class="section-title reveal">
-          Construyo webs<br>
-          <em>que importan</em>
-        </h2>
-        <p class="sobre-p reveal">
-          Soy desarrollador web apasionado por crear productos digitales que
-          combinen una experiencia de usuario excepcional con arquitecturas
-          robustas y escalables. Cada línea de código que escribo tiene un propósito.
-        </p>
-        <p class="sobre-p reveal">
-          Trabajo desde el diseño en Figma hasta el deploy en producción.
-          Me especializo en construir interfaces rápidas, accesibles y visualmente
-          memorables que convierten visitantes en clientes.
-        </p>
-        <div class="sobre-stats reveal">
-          <div class="stat">
-            <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Proyectos</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num" data-target="3">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Años exp.</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num" data-target="100">0</span><span class="stat-plus">%</span>
-            <span class="stat-label">Dedicación</span>
+      <div class="contacto-inner">
+        <div class="contacto-text reveal-left">
+          <div class="section-label">Hablemos</div>
+          <h2 class="section-title" style="margin-bottom:20px">
+            ¿Tienes un negocio?<br><em>Necesitas una web.</em>
+          </h2>
+          <p class="contacto-sub">
+            Cuéntame sobre tu proyecto y te respondo en menos de 24 horas.
+            La consulta inicial es <strong>completamente gratuita</strong>.
+          </p>
+
+          <!--
+          ═══════════════════════════════════════════════
+          CÓMO AGREGAR MÁS CANALES DE CONTACTO:
+
+          Copia y pega uno de estos bloques dentro de
+          <div class="contacto-canales"> para añadir
+          más formas de contacto:
+
+          — Instagram:
+          <a href="https://instagram.com/TUUSUARIO" target="_blank" class="canal-item">
+            <span class="canal-icon">📸</span>
+            <div>
+              <strong>Instagram</strong>
+              <span>@tuusuario</span>
+            </div>
+          </a>
+
+          — LinkedIn:
+          <a href="https://linkedin.com/in/TUUSUARIO" target="_blank" class="canal-item">
+            <span class="canal-icon">in</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <span>linkedin.com/in/tuusuario</span>
+            </div>
+          </a>
+
+          — GitHub:
+          <a href="https://github.com/TUUSUARIO" target="_blank" class="canal-item">
+            <span class="canal-icon">⌥</span>
+            <div>
+              <strong>GitHub</strong>
+              <span>github.com/tuusuario</span>
+            </div>
+          </a>
+
+          — Teléfono fijo / llamada:
+          <a href="tel:+57TUNUMERO" class="canal-item">
+            <span class="canal-icon">📞</span>
+            <div>
+              <strong>Teléfono</strong>
+              <span>+57 XXX XXX XXXX</span>
+            </div>
+          </a>
+          ═══════════════════════════════════════════════
+          -->
+
+          <div class="contacto-canales">
+            <a href="https://wa.me/573124256856?text=Hola%20Alejandro,%20me%20interesa%20una%20página%20web%20para%20mi%20negocio"
+               target="_blank" class="canal-item canal-wpp">
+              <span class="canal-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>+57 312 425 6856</span>
+              </div>
+            </a>
           </div>
         </div>
-      </div>
-      <div class="sobre-visual reveal">
-        <div class="about-card">
-          <div class="about-card-glow"></div>
-          <div class="about-avatar">
-            <div class="avatar-placeholder">
-              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="40" cy="30" r="16" stroke="#00ff88" stroke-width="1.5" opacity=".6"/>
-                <path d="M12 72c0-15.464 12.536-28 28-28s28 12.536 28 28" stroke="#00ff88" stroke-width="1.5" opacity=".6"/>
-              </svg>
-            </div>
-            <div class="avatar-ring"></div>
-          </div>
-          <div class="about-card-info">
-            <span class="info-line"><span class="info-dot"></span> Tu Nombre</span>
-            <span class="info-line"><span class="info-dot green"></span> Full Stack Developer</span>
-            <span class="info-line"><span class="info-dot"></span> Colombia 🇨🇴</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ══ PROYECTOS ══════════════════════════════ -->
-  <section class="section proyectos" id="proyectos">
-    <div class="section-inner">
-      <p class="section-tag">// 02 — proyectos</p>
-      <h2 class="section-title reveal">Trabajo <em>reciente</em></h2>
-
-      <div class="projects-grid">
-
-        <article class="project-card reveal" data-index="01">
-          <div class="project-img">
-            <div class="project-img-inner" style="background: linear-gradient(135deg,#0f1117 0%,#1a1f2e 100%)">
-              <div class="project-mockup">
-                <div class="mock-bar"></div>
-                <div class="mock-lines">
-                  <span></span><span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-num">01</span>
-            <h3 class="project-title">Inmobiliaria App</h3>
-            <p class="project-desc">Plataforma web para gestión y publicación de inmuebles con panel admin, filtros avanzados y galería de fotos.</p>
-            <div class="project-tech">
-              <span>Supabase</span>
-              <span>Cloudinary</span>
-              <span>Vanilla JS</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">Ver proyecto →</a>
-              <a href="#" class="project-link-ghost">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-index="02">
-          <div class="project-img">
-            <div class="project-img-inner" style="background: linear-gradient(135deg,#0a1628 0%,#112240 100%)">
-              <div class="project-mockup">
-                <div class="mock-bar"></div>
-                <div class="mock-lines">
-                  <span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-num">02</span>
-            <h3 class="project-title">E-commerce Store</h3>
-            <p class="project-desc">Tienda online con carrito, pagos integrados, panel de inventario y experiencia de compra optimizada.</p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>Stripe</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">Ver proyecto →</a>
-              <a href="#" class="project-link-ghost">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-index="03">
-          <div class="project-img">
-            <div class="project-img-inner" style="background: linear-gradient(135deg,#0d1117 0%,#161b22 100%)">
-              <div class="project-mockup">
-                <div class="mock-bar"></div>
-                <div class="mock-lines">
-                  <span></span><span></span><span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-num">03</span>
-            <h3 class="project-title">Dashboard Analytics</h3>
-            <p class="project-desc">Panel de métricas en tiempo real con gráficas interactivas, reportes exportables y roles de usuario.</p>
-            <div class="project-tech">
-              <span>Vue.js</span>
-              <span>Chart.js</span>
-              <span>Firebase</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">Ver proyecto →</a>
-              <a href="#" class="project-link-ghost">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ HABILIDADES ════════════════════════════ -->
-  <section class="section habilidades" id="habilidades">
-    <div class="section-inner">
-      <p class="section-tag">// 03 — skills</p>
-      <h2 class="section-title reveal">Mi <em>stack</em></h2>
-
-      <div class="skills-layout">
-        <div class="skills-categories">
-
-          <div class="skill-cat reveal">
-            <h3 class="cat-title"><span class="cat-icon">⟨/⟩</span> Frontend</h3>
-            <div class="skill-list">
-              <div class="skill-item">
-                <span class="skill-name">HTML / CSS</span>
-                <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-              </div>
-              <div class="skill-item">
-                <span class="skill-name">JavaScript</span>
-                <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-              </div>
-              <div class="skill-item">
-                <span class="skill-name">React</span>
-                <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-              </div>
-              <div class="skill-item">
-                <span class="skill-name">Vue.js</span>
-                <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-cat reveal">
-            <h3 class="cat-title"><span class="cat-icon">{ }</span> Backend</h3>
-            <div class="skill-list">
-              <div class="skill-item">
-                <span class="skill-name">Node.js</span>
-                <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
-              </div>
-              <div class="skill-item">
-                <span class="skill-name">Supabase</span>
-                <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-              </div>
-              <div class="skill-item">
-                <span class="skill-name">PostgreSQL</span>
-                <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
-              </div>
-              <div class="skill-item">
-                <span class="skill-name">REST APIs</span>
-                <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-cat reveal">
-            <h3 class="cat-title"><span class="cat-icon">◈</span> Herramientas</h3>
-            <div class="skill-tags">
-              <span>Git</span><span>Figma</span><span>VS Code</span>
-              <span>Cloudinary</span><span>Vercel</span><span>Netlify</span>
-              <span>Docker</span><span>Postman</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ CONTACTO ══════════════════════════════ -->
-  <section class="section contacto" id="contacto">
-    <div class="section-inner contacto-inner">
-      <p class="section-tag">// 04 — contacto</p>
-      <h2 class="section-title reveal">¿Tienes un <em>proyecto</em>?</h2>
-      <p class="contacto-sub reveal">
-        Estoy disponible para proyectos freelance, colaboraciones y oportunidades full-time.
-        Escríbeme y hablamos.
-      </p>
-
-      <div class="contacto-layout">
-        <form class="contact-form reveal" id="contactForm">
-          <div class="form-row">
-            <div class="form-field">
-              <label>Nombre</label>
-              <input type="text" placeholder="Tu nombre" required>
-            </div>
-            <div class="form-field">
-              <label>Email</label>
-              <input type="email" placeholder="tu@email.com" required>
-            </div>
+        <form class="contact-form reveal-right" id="contactForm">
+          <div class="form-field">
+            <label>¿Cuál es tu nombre?</label>
+            <input type="text" placeholder="María González" required>
           </div>
           <div class="form-field">
-            <label>Asunto</label>
-            <input type="text" placeholder="¿De qué trata tu proyecto?">
+            <label>¿A qué se dedica tu negocio?</label>
+            <input type="text" placeholder="Ej: Salón de belleza, restaurante..." required>
           </div>
           <div class="form-field">
-            <label>Mensaje</label>
-            <textarea placeholder="Cuéntame sobre tu proyecto..." rows="5"></textarea>
+            <label>Tu WhatsApp o email</label>
+            <input type="text" placeholder="+57 300 000 0000" required>
           </div>
-          <button type="submit" class="btn-primary btn-submit">
+          <div class="form-field">
+            <label>¿Qué necesitas? (opcional)</label>
+            <textarea placeholder="Cuéntame un poco sobre lo que buscas para tu web..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full" id="submitBtn">
             Enviar mensaje
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M2 8l12-6-6 12-2-4-4-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
             </svg>
           </button>
+          <p class="form-nota">Te respondo en menos de 24 horas. Sin spam, prometido 🤝</p>
         </form>
-
-        <div class="contact-info reveal">
-          <div class="contact-links">
-            <a href="mailto:tu@email.com" class="contact-item">
-              <span class="contact-icon">✉</span>
-              <div>
-                <span class="contact-label">Email</span>
-                <span class="contact-val">tu@email.com</span>
-              </div>
-            </a>
-            <a href="https://github.com/" target="_blank" class="contact-item">
-              <span class="contact-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-                </svg>
-              </span>
-              <div>
-                <span class="contact-label">GitHub</span>
-                <span class="contact-val">github.com/tunombre</span>
-              </div>
-            </a>
-            <a href="https://linkedin.com/" target="_blank" class="contact-item">
-              <span class="contact-icon">in</span>
-              <div>
-                <span class="contact-label">LinkedIn</span>
-                <span class="contact-val">linkedin.com/in/tunombre</span>
-              </div>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <span class="footer-logo"><span class="logo-bracket">&lt;</span>Dev<span class="logo-bracket">/&gt;</span></span>
-    <span class="footer-copy">Diseñado y desarrollado por Ti · 2025</span>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">Alejandro Naranjo</span>
+        <span class="footer-tagline">Diseñador Web · Colombia</span>
+      </div>
+      <div class="footer-links">
+        <a href="#resultados">Resultados</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <p class="footer-copy">© 2025 Alejandro Naranjo Marín · Hecho con ♥ en Colombia</p>
+    </div>
   </footer>
+
+  <!-- FAB WhatsApp -->
+  <a href="https://wa.me/573124256856?text=Hola%20Alejandro,%20me%20interesa%20una%20página%20web"
+     target="_blank" class="fab-wpp" title="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
 
   <script src="js/main.js"></script>
 </body>

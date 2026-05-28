@@ -1,192 +1,166 @@
 // =====================================================
-//  portfolio.js — Portafolio Dev
-//  Cursor · Loader · Nav · Reveals · Contadores
-//  Barras de skills · Menú móvil · Formulario
+//  portfolio.js — Alejandro Naranjo Marín
+//  Parallax · Loader · Nav · Reveals · Contadores
+//  Menú móvil · Formulario · Smooth scroll
 // =====================================================
 
 document.addEventListener('DOMContentLoaded', () => {
   initLoader();
-  initCursor();
+  initParallax();
   initNav();
   initMobileMenu();
   initScrollReveal();
   initCounters();
-  initSkillBars();
   initForm();
-  initNavHighlight();
+  initSmoothScroll();
 });
 
 // ══════════════════════════════════════════════════
 //  LOADER
 // ══════════════════════════════════════════════════
 function initLoader() {
-  const loader     = document.getElementById('loader');
-  const loaderText = document.getElementById('loaderText');
+  const loader = document.getElementById('loader');
+  const fill   = document.getElementById('loaderFill');
   if (!loader) return;
 
-  let count = 0;
-  const interval = setInterval(() => {
-    count += Math.floor(Math.random() * 12) + 4;
-    if (count >= 100) {
-      count = 100;
-      clearInterval(interval);
-      loaderText.textContent = '100';
+  document.body.style.overflow = 'hidden';
 
+  let width = 0;
+  const interval = setInterval(() => {
+    width += Math.random() * 16 + 4;
+    if (width >= 100) {
+      width = 100;
+      if (fill) fill.style.width = '100%';
+      clearInterval(interval);
       setTimeout(() => {
         loader.classList.add('hidden');
-        // Desbloquear scroll después del loader
         document.body.style.overflow = '';
-        // Disparar animaciones del hero
-        triggerHeroAnimations();
-      }, 400);
+      }, 380);
+    } else {
+      if (fill) fill.style.width = width + '%';
     }
-    loaderText.textContent = String(count).padStart(2, '0');
-  }, 60);
-
-  // Bloquear scroll mientras carga
-  document.body.style.overflow = 'hidden';
-}
-
-function triggerHeroAnimations() {
-  // Las animaciones del hero ya están en CSS con animation-delay
-  // Aquí podemos añadir clase a elementos que lo necesiten
-  document.querySelectorAll('[data-delay]').forEach(el => {
-    el.style.animationPlayState = 'running';
-  });
+  }, 55);
 }
 
 // ══════════════════════════════════════════════════
-//  CURSOR PERSONALIZADO
+//  PARALLAX
 // ══════════════════════════════════════════════════
-function initCursor() {
-  const cursor   = document.getElementById('cursor');
-  const follower = document.getElementById('cursorFollower');
-  if (!cursor || !follower) return;
-  if (window.matchMedia('(max-width: 768px)').matches) return;
+function initParallax() {
+  // No en móvil
+  if (window.matchMedia('(max-width: 900px)').matches) return;
 
-  let mouseX = 0, mouseY = 0;
-  let followerX = 0, followerY = 0;
+  const layers = Array.from(document.querySelectorAll('.parallax-bg')).map(bg => ({
+    bg,
+    section: bg.closest('.parallax-section'),
+  })).filter(l => l.section);
 
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top  = mouseY + 'px';
-  });
+  if (!layers.length) return;
 
-  // Follower con lag suave
-  function animateFollower() {
-    followerX += (mouseX - followerX) * 0.12;
-    followerY += (mouseY - followerY) * 0.12;
-    follower.style.left = followerX + 'px';
-    follower.style.top  = followerY + 'px';
-    requestAnimationFrame(animateFollower);
+  function update() {
+    const scrollY = window.scrollY;
+    layers.forEach(({ bg, section }) => {
+      const rect   = section.getBoundingClientRect();
+      const top    = rect.top + scrollY;
+      const height = section.offsetHeight;
+
+      if (rect.bottom < -120 || rect.top > window.innerHeight + 120) return;
+
+      const progress = (scrollY - top + window.innerHeight) / (height + window.innerHeight);
+      const offset   = (progress - 0.5) * -14;
+      bg.style.transform = `translateY(${offset}%)`;
+    });
   }
-  animateFollower();
 
-  // Hover en elementos interactivos
-  const hoverEls = document.querySelectorAll('a, button, input, textarea, .project-card, .contact-item, .skill-cat');
-  hoverEls.forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-  });
-}
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => { update(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
 
-// ══════════════════════════════════════════════════
-//  NAV — fondo al hacer scroll
-// ══════════════════════════════════════════════════
-function initNav() {
-  const nav = document.getElementById('nav');
-  if (!nav) return;
-
-  const update = () => nav.classList.toggle('scrolled', window.scrollY > 60);
-  window.addEventListener('scroll', update, { passive: true });
   update();
 }
 
 // ══════════════════════════════════════════════════
-//  HIGHLIGHT ACTIVO EN NAV
+//  NAV
 // ══════════════════════════════════════════════════
-function initNavHighlight() {
-  const sections = document.querySelectorAll('section[id], .hero[id]');
-  const links    = document.querySelectorAll('.nav-link');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.id;
-      links.forEach(l => {
-        l.style.color = l.getAttribute('href') === `#${id}` ? 'var(--green)' : '';
-      });
-    });
-  }, { threshold: 0.4 });
-
-  sections.forEach(s => observer.observe(s));
+function initNav() {
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  const update = () => nav.classList.toggle('scrolled', window.scrollY > 50);
+  window.addEventListener('scroll', update, { passive: true });
+  update();
 }
 
 // ══════════════════════════════════════════════════
 //  MENÚ MÓVIL
 // ══════════════════════════════════════════════════
 function initMobileMenu() {
-  const toggle = document.getElementById('navToggle');
-  const menu   = document.getElementById('mobileMenu');
+  const toggle   = document.getElementById('navToggle');
+  const menu     = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('mobileClose');
   if (!toggle || !menu) return;
 
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-
-    // Animar hamburguesa → X
+  function openMenu() {
+    menu.classList.add('open');
+    document.body.style.overflow = 'hidden';
     const spans = toggle.querySelectorAll('span');
-    if (isOpen) {
-      spans[0].style.cssText = 'transform: rotate(45deg) translate(4px, 4px)';
-      spans[1].style.cssText = 'transform: rotate(-45deg) translate(4px, -4px)';
-    } else {
-      spans[0].style.cssText = '';
-      spans[1].style.cssText = '';
-    }
-  });
+    spans[0].style.cssText = 'transform:rotate(45deg) translate(5px,5px)';
+    spans[1].style.cssText = 'opacity:0;transform:translateX(-8px)';
+    spans[2].style.cssText = 'transform:rotate(-45deg) translate(5px,-5px)';
+  }
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+    toggle.querySelectorAll('span').forEach(s => s.style.cssText = '');
+  }
+
+  toggle.addEventListener('click', () =>
+    menu.classList.contains('open') ? closeMenu() : openMenu()
+  );
+
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 }
 
 window.closeMobile = () => {
   const menu   = document.getElementById('mobileMenu');
   const toggle = document.getElementById('navToggle');
-  if (!menu) return;
-  menu.classList.remove('open');
+  if (menu) menu.classList.remove('open');
   document.body.style.overflow = '';
-  if (toggle) {
-    toggle.querySelectorAll('span').forEach(s => s.style.cssText = '');
-  }
+  if (toggle) toggle.querySelectorAll('span').forEach(s => s.style.cssText = '');
 };
 
 // ══════════════════════════════════════════════════
-//  SCROLL REVEAL
+//  SCROLL REVEAL con stagger
 // ══════════════════════════════════════════════════
 function initScrollReveal() {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      // Stagger si hay varios en el mismo contenedor
-      const siblings = entry.target.parentElement?.querySelectorAll('.reveal') || [];
-      let delay = 0;
-      siblings.forEach((sib, idx) => {
-        if (sib === entry.target) delay = idx * 80;
-      });
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, delay);
+
+      const parent   = entry.target.parentElement;
+      const siblings = parent
+        ? Array.from(parent.querySelectorAll('.reveal-up, .reveal-left, .reveal-right'))
+        : [];
+      const idx   = siblings.indexOf(entry.target);
+      const delay = idx >= 0 ? idx * 90 : 0;
+
+      setTimeout(() => entry.target.classList.add('visible'), delay);
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right')
+    .forEach(el => observer.observe(el));
 }
 
 // ══════════════════════════════════════════════════
-//  CONTADORES ANIMADOS
+//  CONTADORES
 // ══════════════════════════════════════════════════
 function initCounters() {
-  const observer = new IntersectionObserver(entries => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const el     = entry.target;
@@ -196,86 +170,86 @@ function initCounters() {
       const dur  = 1600;
       const step = 16;
       const inc  = target / (dur / step);
-      let current = 0;
+      let cur    = 0;
 
       const timer = setInterval(() => {
-        current += inc;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        el.textContent = Math.floor(current);
+        cur += inc;
+        if (cur >= target) { cur = target; clearInterval(timer); }
+        el.textContent = Math.floor(cur);
       }, step);
 
       observer.unobserve(el);
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.6 });
 
-  document.querySelectorAll('.stat-num').forEach(el => observer.observe(el));
-}
-
-// ══════════════════════════════════════════════════
-//  BARRAS DE HABILIDADES
-// ══════════════════════════════════════════════════
-function initSkillBars() {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      // Animar todas las barras dentro de la sección visible
-      entry.target.querySelectorAll('.skill-fill').forEach((bar, i) => {
-        const width = bar.dataset.width || '0';
-        setTimeout(() => {
-          bar.style.width = width + '%';
-        }, i * 120);
-      });
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.3 });
-
-  document.querySelectorAll('.skill-cat').forEach(el => observer.observe(el));
+  document.querySelectorAll('.trust-num, .stat-num').forEach(el => observer.observe(el));
 }
 
 // ══════════════════════════════════════════════════
 //  FORMULARIO
 // ══════════════════════════════════════════════════
 function initForm() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
+  const form      = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  if (!form || !submitBtn) return;
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const btn = form.querySelector('.btn-submit');
 
-    // Estado de envío
-    btn.textContent = 'Enviando...';
-    btn.style.opacity = '.7';
-    btn.disabled = true;
+    let valid = true;
+    form.querySelectorAll('[required]').forEach(input => {
+      if (!input.value.trim()) {
+        valid = false;
+        input.style.borderColor = '#ff4d6d';
+        input.addEventListener('input', () => { input.style.borderColor = ''; }, { once: true });
+      }
+    });
+    if (!valid) return;
 
-    // Simulación (reemplaza con tu lógica real)
+    const original = submitBtn.innerHTML;
+    submitBtn.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+           style="animation:spinBtn .8s linear infinite;flex-shrink:0">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" opacity=".2"/>
+        <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Enviando...`;
+    submitBtn.disabled      = true;
+    submitBtn.style.opacity = '.8';
+
+    // Reemplaza este setTimeout con tu lógica real (EmailJS, fetch, etc.)
     setTimeout(() => {
-      btn.innerHTML = '✓ Mensaje enviado';
-      btn.style.opacity = '1';
-      btn.style.background = '#00c96b';
+      submitBtn.innerHTML         = '✓ ¡Listo! Te respondo pronto 🎉';
+      submitBtn.style.opacity     = '1';
+      submitBtn.style.background  = '#00c96b';
+      form.reset();
 
-      // Reset después de 3s
       setTimeout(() => {
-        form.reset();
-        btn.innerHTML = `Enviar mensaje <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l12-6-6 12-2-4-4-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
-    }, 1400);
+        submitBtn.innerHTML        = original;
+        submitBtn.style.background = '';
+        submitBtn.disabled         = false;
+      }, 4000);
+    }, 1600);
   });
 }
 
 // ══════════════════════════════════════════════════
-//  SMOOTH SCROLL para links internos
+//  SMOOTH SCROLL
 // ══════════════════════════════════════════════════
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (!target) return;
-    e.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const navH = document.getElementById('nav')?.offsetHeight || 64;
+      const top  = target.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
   });
-});
+}
+
+// Keyframe spinner inyectado
+const style = document.createElement('style');
+style.textContent = `@keyframes spinBtn { to { transform: rotate(360deg); } }`;
+document.head.appendChild(style);
